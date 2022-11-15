@@ -1,0 +1,13 @@
+i=1
+h=0
+t=0
+while True:
+    out = input("Throw the coin and enter head or tail here: ? ")
+    if (out=='head'):
+        h=h+1
+    elif(out =='tail'):
+        t=t+1
+    heads = (h/i)*100
+    print(f"Heads: {float(heads)}%")
+    i=i+1
+
