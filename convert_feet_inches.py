@@ -3,6 +3,11 @@ while True:
 
     feet_inches = input("Enter feet and inches : ")
     try:
+        def parse(feet_inches):
+            parts = feet_inches.split(" ")
+            feet = float(parts[0])
+            inches = float(parts[1])
+            return {"feet":feet,"inches":inches}
         def convert(feet_inches):
 
             #The split method split the string and returns a list of strings split at that character.
@@ -23,6 +28,7 @@ while True:
         #so here comes the concept of decoupling
         #so just return one single values
         result = convert(feet_inches)
+        print(f"{parse(feet_inches)['feet']} feet and {parse(feet_inches)['inches']} inches is equal to {result} meters ")
         if result < 1:
             print("Sorry the Child is too short for the ride ")
         else:
