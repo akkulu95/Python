@@ -1,0 +1,34 @@
+import json
+
+with open('Questions.json', 'r') as file:
+    content = file.read()
+score=0
+data = json.loads(content) #so that it returns a list
+#print(type(content))
+#print(type(data))
+""" Now lets iterate over the data"""
+for question in data:
+    print(question["Question_text"])
+    """We have to print the options as well for that we use the following
+    for loop"""
+    for index,alternative in enumerate(question["alternatives"]):
+        print(index+1,"-",alternative)
+    """So this is a nested for loop"""
+    """Now we want the user to enter an option"""
+    user_choice = int(input("Enter Your Answer: "))
+    """Now what to do with the user choice
+    Lets add the user_choice to our data"""
+    question["user_choice"]=user_choice
+    if question["user_choice"] == question["Correct Answer"]:
+        score = score + 1
+"""Now lets look how it looks"""
+#print(data)
+for index,question in enumerate(data):
+    message = f"{index+1}-Your answer : {question['user_choice']}," \
+              f"Correct answer:{question['Correct Answer']}"
+    print(message)
+
+
+print("score is ",score,"/",len(data))
+
+
